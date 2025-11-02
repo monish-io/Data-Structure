@@ -40,7 +40,6 @@ int main(){
 	printf("\nEnter a number to delete:\n");
 	scanf("%d",&s);
 	delete(hptr,s);
-	printf("\n is deleted.\n",s);
 	
 	printf("Printing Preorder.....\n");
     pre_order(hptr);
@@ -95,7 +94,7 @@ TREE *search(TREE *ptr,int n){
 }
 void delete(TREE *ptr,int r){
     TREE *q=search(ptr,r),*p=parent;
-    if(ptr==NULL){ 
+    if(ptr==NULL || q==NULL){ 
 		printf("The data to delete does not exist.\n"); 
 		return;
     }
@@ -106,21 +105,18 @@ void delete(TREE *ptr,int r){
 		else p->right=NULL;
 		free(q);
 		q=NULL;
-		return;
     }
     if((!null)&&(nulr)){
 		if(p->left==q) p->left=q->left;
 		else p->right=q->left;
 		free(q);
 		q=NULL;
-		return;
     } 
     if((null)&&(!nulr)){
 		if(p->left==q) p->left=q->right;
 		else p->right=q->right;
 		free(q);
 		q=NULL;
-		return;
     } 
     if((!null)&&(!nulr)){
 		TREE *rm= q->left;
@@ -134,6 +130,7 @@ void delete(TREE *ptr,int r){
 		else p->right=q->right;
 		free(q);
 		q=NULL;
-		return;
     } 
+	printf("\n is deleted.\n",r);
+	return;
 }
