@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 typedef struct bst{
     struct bst *left;
     struct bst *right;
@@ -10,6 +11,7 @@ void pre_order(TREE *);
 void in_order(TREE *);
 void post_order(TREE *);
 TREE *search(TREE *,int);
+void delete(TREE *,int);
 int main(){
     char op;
     int n,s;
@@ -34,6 +36,18 @@ int main(){
 	TREE *adr=search(hptr,s);
 	if(adr==NULL) printf("The data does not exist.\n");
 	else printf("\n%d is found in %p\n",s,adr);
+
+	printf("\nEnter a number to delete:\n");
+	scanf("%d",&s);
+	delete(hptr,s);
+	printf("\n is deleted.\n",s);
+	
+	printf("Printing Preorder.....\n");
+    pre_order(hptr);
+    printf("\nPrinting Inorder.....\n");
+    in_order(hptr);
+    printf("\nPrinting Postorder.....\n");
+    post_order(hptr);
 }
 void add_tree(TREE **ptr,int num){
     if(*ptr==NULL){
@@ -78,4 +92,48 @@ TREE *search(TREE *ptr,int n){
 		parent=ptr;
 		return search(ptr->right,n);
 	}
+}
+void delete(TREE *ptr,int r){
+    TREE *q=search(ptr,r),*p=parent;
+    if(ptr==NULL){ 
+		printf("The data to delete does not exist.\n"); 
+		return;
+    }
+    bool null=(q->left==NULL);
+    bool nulr=(q->right==NULL);
+    if(null && nulr){
+		if(p->left==q) p->left=NULL;
+		else p->right=NULL;
+		free(q);
+		q=NULL;
+		return;
+    }
+    if((!null)&&(nulr)){
+		if(p->left==q) p->left=q->left;
+		else p->right=q->left;
+		free(q);
+		q=NULL;
+		return;
+    } 
+    if((null)&&(!nulr)){
+		if(p->left==q) p->left=q->right;
+		else p->right=q->right;
+		free(q);
+		q=NULL;
+		return;
+    } 
+    if((!null)&&(!nulr)){
+		TREE *rm= q->left;
+		while(rm->right !=0){
+	   		p=rm;
+	   		rm=rm->right;
+		}
+		q->roll=rm->roll;
+		q=rm;
+		if(p->left==q) p->left=q->right;
+		else p->right=q->right;
+		free(q);
+		q=NULL;
+		return;
+    } 
 }
