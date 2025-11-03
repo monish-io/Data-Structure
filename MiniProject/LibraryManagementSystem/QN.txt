@@ -1,0 +1,125 @@
+Library Management System (LMS) in C – Book Management Module Specification
+1. Introduction
+The Library Management System (LMS) is a console-based application developed in C, designed to automate core library operations. It empowers librarians to efficiently manage books, users, and key transactions—such as issue and return—while ensuring accurate, up-to-date records through automatic date tracking.
+2. Purpose of the Book Management Module
+The Book Management Module is integral to the LMS, enabling the librarian (admin) to:
+·	Add new books to the library catalog.
+·	Update existing book details.
+·	Remove books from the system.
+·	Search for books using a variety of criteria.
+·	View all currently available books.
+·	Issue books to users (with automatic recording of issue/due dates).
+·	Process Returns with real-time updating of the return date.
+·	List Issued Books to show all current checkouts, issue, and due dates.
+3. Book Management Menu Structure
++----------------------------------------+
+|         Book Management Menu           |
+|----------------------------------------|
+| 1. Add New Book                       |
+| 2. Update Book Details                |
+| 3. Remove Book                        |
+| 4. Search Book                        |
+| 5. View All Books                     |
+| 6. Issue Book                         |
+| 7. Return Book                        |
+| 8. List Issued Books                  |
+| 9. Save                               |
+| 10. Exit                              |
++----------------------------------------+
+
+4. Description of Menu Options
+·	Add New Book: Register a new book with all required details.
+·	Update Book Details: Modify stored details of any book.
+·	Remove Book: Delete a book record from the library.
+·	Search Book: Find books by various attributes.
+·	View All Books: Display the complete library catalog.
+·	Issue Book: Assign a book to a user, recording the issue and due dates automatically.
+·	Return Book: Receive a returned book, update records, and handle late fees if applicable.
+·	List Issued Books: Show all active checkouts with all relevant data.
+·	Save: Persist book and issued book data to files.
+·	Exit: Terminate the Book Management Module.
+5. Submenus for Update, Remove, and Search Operations
+5.1 Update Book Details Submenu
++---------------------------+
+|   Update Book Details     |
+|---------------------------|
+| A. By Book ID             |
+| B. By Book Name           |
+| D. Back to Main Menu      |
++---------------------------+
+
+·	By Book ID: Update details using a unique identifier.
+·	By Book Name: Update by searching with the book’s title.
+·	Back: Return to the main menu.
+5.2 Remove Book Submenu
++---------------------------+
+|        Remove Book        |
+|---------------------------|
+| A. By Book ID             |
+| B. By Book Name           |
+| D. Back to Main Menu      |
++---------------------------+
+
+·	By Book ID: Remove by unique ID.
+·	By Book Name: Remove all books matching the title.
+·	Back: Return to the main menu.
+5.3 Search Book Submenu
++---------------------------+
+|        Search Book        |
+|---------------------------|
+| A. By Book ID             |
+| B. By Book Name           |
+| C. By Author Name         |
+| D. Back to Main Menu      |
++---------------------------+
+
+·	By Book ID: Find by unique ID.
+·	By Book Name: Find by title.
+·	By Author Name: Find all books by the same author.
+·	Back: Return to main menu.
+6. Issue and Return Book Features
+6.1 Issue Book Steps
+·	Select the book and user.
+·	Check if the book's quantity > 0.
+·	Record:
+o	Book ID
+o	User ID
+o	User Name
+o	Issue Date (auto-generated)
+o	Due Date (e.g., 7 days from issue)
+·	Decrement available quantity.
+·	Save the issue record to a persistent file.
+6.2 Return Book Steps
+·	Select record by Book ID and User ID.
+·	Record Return Date automatically.
+·	Increment available quantity of the book.
+·	Mark the issue record as returned.
+·	Optionally, compute and display late fees if applicable.
+6.3 List Issued Books
+·	Display all currently issued books, showing:
+o	Book ID and Title
+o	User ID and Name
+o	Issue Date
+o	Due Date
+o	Return Date
+7. Book Record Fields
+Field	Description
+Book ID	Unique identifier for each book
+Title	Name of the book
+Author	Author(s) of the book
+Quantity	Number of copies available
+ 
+8. Issue Record Fields
+Field	Description
+Issue ID	Unique identifier for each issue
+Book ID	ID of the issued book
+User ID	ID of the user borrowing the book
+User Name	Name of the user borrowing the book
+Issue Date	Date when the book was issued
+Due Date	Date by which the book should be returned
+Return Date	Date returned (if applicable)
+ 
+9. Data Persistence
+·	Maintains two files:
+o	Books Database: All book records.
+o	Issued Books Database: All active and historical issue records.
