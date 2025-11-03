@@ -1,0 +1,77 @@
+Banking Management System (BMS) in C – Account Management Module Documentation
+1. Overview
+The Banking Management System (BMS) is a console-based application designed in C to automate the management of bank operations. This system enables bank staff to efficiently manage customer accounts, perform transactions, and maintain detailed records securely.
+This documentation focuses on the Account Management Module, which handles core functionalities such as account creation, updates, deletions, transactions, and viewing of account and transaction information.
+2. Purpose of the Account Management Module
+The key objectives of this module are to:
+·	Enable creation of new customer bank accounts.
+·	Facilitate secure updating of existing account details.
+·	Allow deletion of accounts after authorized verification.
+·	Support searching for accounts via multiple criteria.
+·	Manage banking transactions such as deposits and withdrawals.
+·	Display account details and transaction history.
+·	Ensure persistent saving of all account and transaction data.
+3. Banking Management Menu Structure
++-------------------------------------------+
+|         Banking Management Menu           |
+|-------------------------------------------|
+| 1. Create New Account                     |
+| 2. Update Account Details                 |
+| 3. Delete Account                         |
+| 4. View An Account                        |
+| 5. Deposit Money                          |
+| 6. Withdraw Money                         |
+| 7. View Accounts Details                  |
+| 8. Transaction History                    |
+| 9. Save Account Details                   |
+| 10. Exit                                 |
++-------------------------------------------+
+
+4. Menu Option Descriptions
+1.	Create New Account
+Register new bank accounts with all mandatory fields validated for correctness.
+2.	Update Account Details
+Securely update customer details after verifying identity using account number and PIN. Updates include holder name, contact number, address, and date of birth.
+3.	Delete Account
+Delete account after proper authentication to prevent unauthorized removals.
+4.	View An Account
+Display comprehensive information of a single account post verification.
+5.	Deposit Money
+Deposit funds into an account securely, recording the transaction accurately.
+6.	Withdraw Money
+Withdraw funds from an authenticated account ensuring sufficient balance.
+7.	View Accounts Details
+List summaries or full details of all accounts for administrative overview.
+8.	Transaction History
+Show chronological transaction logs for a particular account, detailing deposits and withdrawals with timestamps.
+9.	Save Account Details
+Persistently save all current account and transaction data to files to secure updates and facilitate data recovery.
+10.	Exit
+Safely terminate the program ensuring all changes are saved.
+5. Account Data Fields
+Each account holds key information as follows:
+Field	Description
+Account Number	Unique 16-digit identifier for the account
+Account Holder Name	Full name of the account owner
+Account Type	Type category such as Savings or Current
+Balance	Current balance in the account
+Address	Residential address of the holder
+Contact Number	Phone number for contact
+PIN Number	4-digit security code for authentication
+ 
+6. Transaction Data Fields
+Transactions are recorded with these properties:
+Field	Description
+Transaction ID	Unique identifier for each transaction
+Account Number	Related account’s unique 16-digit number
+Transaction Type	Deposit or Withdrawal
+Amount	Monetary value involved in transaction
+Timestamp	Exact date and time of the transaction
+ 
+7. Modular Design and File Organization
+The system is divided into multiple modules, each implemented in separate files for clear code organization, maintainability, and better understanding.
+8. Data Persistence and File Handling
+·	The system uses file storage to permanently save account records and transaction logs.
+·	Data integrity is maintained by writing updates immediately after each transaction or account modification.
+·	On program startup, data files are loaded into memory structures for fast access.
+·	Before exit, all in-memory data is saved back to files to prevent data loss.
