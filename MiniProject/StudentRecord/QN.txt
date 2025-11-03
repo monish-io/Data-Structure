@@ -1,0 +1,85 @@
+MINI PROJECT
+STUDENT RECORD
+
+      Create an executable file named “student” from different modules like
+stud_add.c, stud_del.c, stud_show.c, stud_mod.c, stud_save. c,…etc,
+When executed should display on the screen as in figure1.
+
+	   		fig.1
+ 
+**** STUDENT RECORD MENU ****
+A/a	:  Add New Record
+D/d	: Delete A Record
+S/s	: Show the List
+M/m	: Modify A record
+V/v	: Save
+E/e	: Exit
+T/t	: Sort the List
+L/l	: Delete All the Records
+R/r	: Reverse the List	
+Enter Your Choice:
+
+stud_add.c:
+1)	A function stud_add should be called each time the user inputs option ‘A’ from the menu.
+2)	This function should create a new block dynamically to store the information of a student (rollno, name, percentage) and link it appropriately into the single linked list.
+3)	When a new record is created the rollno should be automatically the least positive number available without duplication.
+4)	Users must input the name and percentage of the student.
+
+stud_del.c:
+1)	A function stud_del, when called from the menu should prompt a sub-menu(fig.2) to delete a record “based on rollno”, “based on name”.
+2)	If identical names existing, then all the records with the same name should be display, so that user can identify the rollno to delete.
+
+fig.2
+
+Enter
+R/r	:  Enter Rollno to Delete
+N/n	: Enter Name to Delete
+Enter Your Choice:
+
+stud_show.c:
+1)	When called stud_show function should display the complete list in a tabular format.
+
+stud_mod.c:
+1)	This should print a sub_menu(fig.3) to search which record is to be modified, options being with “rollno” or “name” or “percentage”.
+2)	If rollno is input first need to find the record available or not, if available new entry should be prompted for input.
+3)	If name or percentage is the input, as there is a possibility of multiple existence, users should input the rollno which is associated with that (name / percentage) to modify.
+4)	sub_menu(fig.4) to which record is to be modified, options “name” or “percentage” and change based on user input.
+
+ fig.3 
+
+Enter which record to search for modification
+R/r	:  To search Rollno
+N/n	: To search Name
+P/p	: Percentage based
+Enter Your Choice:
+
+       fig.4 
+
+Enter which record to modification
+N/n	: To search Name
+P/p	: Percentage based
+Enter Your Choice:
+
+stud_ save.c:
+1)	The complete list should be saved a file named “student.dat” when called from the menu.
+2)	The “student.dat” is the database file which stores all the students record, so each time this process runs must get an updated list from the database file.
+3)	If option “e” is chosen from menu, a sub-menu(fig.5) should be displayed with choice for “save and exit” and “exit without saving”.
+4)	When option is ‘t’, it should print a sub-menu (fig.6) with choices “sort with name”, “sort with percentage”.
+5)	Choosing ‘i’ from the menu should delete all the nodes from the list.
+6)	When option ‘r’ is selected the list should be reversed.
+
+
+fig.5 
+
+Enter 
+S/s	: Save and Exit
+E/e	: Exit Without Saving
+Enter Your Choice:
+
+fig.6 
+
+Enter 
+N/n	: Sort with Name
+P/p	: Sort with percentage
+Enter Your Choice:
+
