@@ -29,10 +29,11 @@ void stud_del(SR **ptr){
 		}
 		temp=*ptr;
 		printf("\n\n\t*************STUDENT LIST****************\n");
-		printf("\t|Roll | Name             | Percentage\t|\n");
+		printf("\t|Roll  | Name             | Percentage\t|\n");
+		printf("\t+---------------------------------------+\n");
 		while(temp!=NULL){
 			if(!(strcmp(st,temp->name)))
-			printf("\t|  %d  | %-17s| \t%.2f \t|\n",temp->roll,temp->name,temp->per);
+			printf("\t| %3d  | %-17s| \t%.2f \t|\n",temp->roll,temp->name,temp->per);
 			temp=temp->next;
 		}
 		printf("\t*****************************************\n\n");
@@ -47,6 +48,8 @@ void stud_del(SR **ptr){
 			else prv->next=temp->next;
 			free(temp);
 			temp=NULL;
+			system("clear");
+			printf("\nYour requested data is deleted\n");
 			return;
 		}
 		else{
@@ -58,13 +61,12 @@ void stud_del(SR **ptr){
 		printf("\nEnter a valid Roll no\n");
 		goto delr;
 	}
-	printf("\nYour requested data is deleted\n");
 }
 void stud_dell(SR **ptr){
 	SR *temp=*ptr;
 	while(temp==NULL){
-		printf("\nNo data to delete!\n");
 		system("clear");
+		printf("\nNo data to delete!\n");
 		return;
 	}
 	while(*ptr!=NULL){

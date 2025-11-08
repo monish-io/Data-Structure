@@ -24,6 +24,7 @@ void stud_mod(SR **ptr){
 			printf("Enter the Name to modify:\t");
 			scanf(" %[^\n]",st);
 			while(p!=NULL && (strcmp(st,p->name))){
+				if(!(strcmp(st,p->name))) break;
 				p=p->next;
 			}
 			if(p==NULL){
@@ -32,10 +33,11 @@ void stud_mod(SR **ptr){
 			}
 			p=*ptr;
 			printf("\n\n\t*************STUDENT LIST****************\n");
-			printf("\t|Roll | Name             | Percentage\t|\n");
+			printf("\t|Roll  | Name             | Percentage\t|\n");
+			printf("\t+---------------------------------------+\n");
 			while(p!=NULL){
 				if(!(strcmp(st,p->name)))
-				printf("\t|  %d  | %-17s| \t%.2f \t|\n",p->roll,p->name,p->per);
+				printf("\t| %3d  | %-17s| \t%.2f \t|\n",p->roll,p->name,p->per);
 				p=p->next;
 			}
 			printf("\t*****************************************\n\n");
@@ -49,6 +51,7 @@ void stud_mod(SR **ptr){
 		}
 	}
 	while(temp!=NULL && temp->roll!=r){
+		if(temp->roll==r) break;
 		temp=temp->next;
 	}
 	if(temp==NULL){
@@ -87,5 +90,6 @@ void stud_mod(SR **ptr){
 		}
 		else temp=temp->next;
 	}
+	system("clear");
 	printf("\nThe data has been modified\n"); 
 }

@@ -1,3 +1,4 @@
+#include<stdlib.h>
 typedef struct student_record{
 	int roll;
 	char name[16];
@@ -12,7 +13,7 @@ void stud_add(SR **ptr){
 	printf("Enter the percentage scored!:\t");
 	scanf("%f",&temp->per);
 	
-	if(*ptr==NULL) temp->roll=1;
+	if((*ptr) == NULL) temp->roll=1;
 	else{
 	     SR *last=*ptr;
 	     while((last->next!=NULL) && (last->roll+1==last->next->roll)) last=last->next;
