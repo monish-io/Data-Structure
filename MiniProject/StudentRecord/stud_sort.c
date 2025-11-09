@@ -1,4 +1,6 @@
-int record_size(SR *);
+#include"stud.h"
+
+//int record_size(SR *);
 void stud_sort(SR *ptr){
 	int n=record_size(ptr);
 	char op;

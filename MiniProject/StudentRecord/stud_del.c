@@ -1,3 +1,5 @@
+#include"stud.h"
+
 void stud_del(SR **ptr){
 	char op;
 	int i;
@@ -64,11 +66,6 @@ void stud_del(SR **ptr){
 }
 void stud_dell(SR **ptr){
 	SR *temp=*ptr;
-	while(temp==NULL){
-		system("clear");
-		printf("\nNo data to delete!\n");
-		return;
-	}
 	while(*ptr!=NULL){
 		*ptr=temp->next;
 		free(temp);

@@ -1,3 +1,5 @@
+#include"stud.h"
+
 void stud_mod(SR **ptr){
 	char op;
 	m:

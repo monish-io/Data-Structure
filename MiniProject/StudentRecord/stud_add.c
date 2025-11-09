@@ -1,10 +1,5 @@
-#include<stdlib.h>
-typedef struct student_record{
-	int roll;
-	char name[16];
-	float per;
-	struct student_record *next;
-}SR;
+#include"stud.h"
+
 void stud_add(SR **ptr){
 	SR *temp=(SR*)malloc(sizeof(SR));
 	printf("Enter the details...\n");
@@ -14,6 +9,7 @@ void stud_add(SR **ptr){
 	scanf("%f",&temp->per);
 	
 	if((*ptr) == NULL) temp->roll=1;
+	else if((*ptr)->roll!=1) temp->roll=1;
 	else{
 	     SR *last=*ptr;
 	     while((last->next!=NULL) && (last->roll+1==last->next->roll)) last=last->next;

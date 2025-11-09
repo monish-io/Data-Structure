@@ -1,3 +1,5 @@
+#include"stud.h"
+
 void print(SR *ptr){
 	system("clear");
 	printf("\n\n\t*************STUDENT LIST****************\n");
